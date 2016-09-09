@@ -34,7 +34,7 @@ function MultiDayDataSave()
      AllTimeSlots = zeros(slotnum,freqnum);  
    end
    %save the one-day-all-timeslot data in the expected position
-   AllTimeSlots(timepos:(timepos+slotnum-1),1:freqnum) = tmpLevel;
+   AllTimeSlots(timepos:(timepos+slotnum-1),1:freqnum) = tmpLevel.;
    %adjust the position pointer
    timepos = timepos + slotnum;  
    clear tmpLevel;
