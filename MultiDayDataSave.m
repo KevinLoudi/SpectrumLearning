@@ -21,33 +21,12 @@ function MultiDayDataSave()
  %  end
  %  load(filename);
  %save all level data in allLevel and clear reducant variable
- allLevel = MultiLevel.Level;
- clear MultiLevel;
- %a point used to mark the current expected data-save position
- timepos = 1;
- for i = 1:length(allLevel)
-   %unload the one-day-all-timeslot data
-   tmpLevel = allLevel{i};
-   [slotnum,freqnum] = size(tmpLevel);
-   if i == 1
-     %create the data-saving matrix in the first time
-     AllTimeSlots = zeros(slotnum,freqnum);  
-   end
-   %save the one-day-all-timeslot data in the expected position
-   AllTimeSlots(timepos:(timepos+slotnum-1),1:freqnum) = tmpLevel.;
-   %adjust the position pointer
-   timepos = timepos + slotnum;  
-   clear tmpLevel;
- end
- %save the several-day-all-timeslot data in mat file
- %along with basic infomation of file, Frequency increment and build time
+ MultiLevel.Info.StartFreq = StartF;
+ MultiLevel.Info.StopFreq = StopF;
+ MultiLevel.Info.StepFreq = StepF;
  cur_time = fix(clock);
  time_str = sprintf('%.4d-%.2d-%.2d:%.2d:%.2d:%.2d:%.2d',cur_time(1),cur_time(2),cur_time(3),cur_time(4),cur_time(5),cur_time(6));
- FileInfo.StartFreq = StartF;
- FileInfo.StopFreq = StopF;
- FileInfo.StepFreq = StepF;
- FileInfo.BuildTime = time_str;
- FileInfo.DeviceName = '02';
- filename = sprintf('AllTimeSlotinOne_%s_%s.mat', num2str(StartF),num2str(StopF));
- save(filename,'AllTimeSlots','FileInfo');
+ MultiLevel.Info.BuildTime = time_str;
+ filename = sprintf('MultiLevel_%s_%s.mat', num2str(StartF),num2str(StopF));
+ save(filename,'MultiLevel');
 end

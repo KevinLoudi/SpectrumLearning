@@ -1,0 +1,15 @@
+%Gobal data struct
+
+Level
+Defination: data read from *.argus file
+Level.Info: 
+DeviceId: int, ID of specific device
+Longitude: float, Longitude of the device
+Latitude: float, Latitude of the device
+Status: bool/int(0,1), give a '1' if device infomation has been saved
+FileNum: int, the number of data file read by program
+
+
+Level.Data: 
+time: string time for a raw-wise level data
+level[time,freq]: int16 level data grouped by time and frequency
