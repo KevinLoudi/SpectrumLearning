@@ -63,3 +63,9 @@ function [Results] = CalcChannelState(WideBandSpectrum,ChannelFilter)
  Results.Occupancy = DWBS;
  save('CS.mat','Results');
 end
+
+
+function [Result]=ApplyOTSUinChannelState(WideBandSpectrum)
+  
+
+end
