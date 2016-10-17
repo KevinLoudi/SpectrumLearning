@@ -6,11 +6,16 @@ function MultiDayDataSave()
  clear;
  clc;
  %Path = 'E:\\tmpData\\825-960\\%s\\02';
- Path ='D:\\Code\\Matlab\\SpectrumLearning\\Data\\OriginData\\1710-1960\\%s\\02';
- StartF = 1710; 
- StopF = 1740;
+ %Path ='D:\\Code\\Matlab\\SpectrumLearning\\Data\\OriginData\\1710-1960\\%s\\02';
+ % StartF = 1710; 
+ % StopF = 1740;
+
+ Path ='D:\\Code\\Matlab\\SpectrumLearning\\Data\\OriginData\\60-137\\%s\\02';
+ StartF=60;
+ StopF=137;
  StepF = 0.025;
- DayArray = {'20151216','20151217','20151218','20151219','20151220','20151221','20151222'};
+ %DayArray = {'20151216','20151217','20151218','20151219','20151220','20151221','20151222'};
+ DayArray = {'20151217'};
  %Read data day by day if the "Path" exist locally
  [MultiLevel] = MultiDaySpectrumReader(Path,DayArray,StartF,StopF)
  %Save Data
